@@ -1,0 +1,59 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.hero {
+  width: 100%;
+  padding-block: to-rem(80);
+  background-color: $white-color;
+
+  &__container {
+    @include flex(column, center, center);
+  }
+
+  &__content {
+    max-width: to-rem(770);
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-bottom: to-rem(36);
+    @include flex(column, center, center);
+  }
+
+  &__subtitle {
+    display: inline-block;
+    font-size: to-rem(16);
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $dark-color;
+    margin-bottom: to-rem(13);
+  }
+
+  &__title {
+    font-family: $second-family;
+    font-size: to-rem(67);
+    line-height: 1.29;
+    letter-spacing: 0.02em;
+    color: $dark-color;
+    margin-bottom: to-rem(30);
+  }
+
+  &__text {
+    font-size: to-rem(18);
+    line-height: 1.78;
+    letter-spacing: 0.02em;
+    color: $dark-color;
+    max-width: to-rem(766);
+    margin-inline: auto;
+  }
+
+  &__img {
+    width: 100%;
+    max-width: to-rem(1280);
+    height: to-rem(480);
+    background-image: url("../../assets/images/hero-bg.jpg");
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
+}

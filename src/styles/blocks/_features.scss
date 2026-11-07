@@ -1,0 +1,151 @@
+@use "sass:color";
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.features {
+  width: 100%;
+  padding-block: fluid(160, 80);
+  background-color: $white-color;
+
+  &__container {
+    max-width: to-rem(1060);
+    @include flex(column, center, stretch, 50);
+  }
+
+  &__header {
+    @include flex(row, space-between, center, 32, wrap);
+    padding-bottom: to-rem(50);
+    border-bottom: to-rem(1) solid $border-color;
+    width: 100%;
+
+    @include respond-to("tablet") {
+      flex-direction: column;
+      gap: to-rem(16);
+    }
+  }
+
+  &__title {
+    font-family: $second-family;
+    @include fluid-text(44, 28, 1.31);
+    letter-spacing: 0.02em;
+    color: $dark-color;
+    max-width: to-rem(432);
+  }
+
+  &__text {
+    @include fluid-text(16, 14, 2);
+    letter-spacing: 0.02em;
+    color: $dark-color;
+    max-width: to-rem(431);
+  }
+
+  &__grid {
+    width: 100%;
+    @include grid($cols: 3, $gap: 30);
+
+    @include respond-to("tablet") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__footer {
+    @include flex(row, center, center);
+    background-color: $bg-color;
+    padding-block: to-rem(16);
+    padding-inline: to-rem(24);
+    position: relative;
+    width: 100%;
+  }
+
+  &__more-link {
+    @include fluid-text(14, 13, 1.71);
+    letter-spacing: 0.02em;
+    color: $dark-color;
+    width: 100%;
+    @include flex(row, center, center);
+    position: relative;
+
+    @include hover {
+      color: $accent-color;
+
+      .features__more-arrow {
+        transform: translate(to-rem(3), to-rem(-3));
+      }
+
+      svg path {
+        fill: $accent-color;
+      }
+    }
+  }
+
+  &__more-arrow {
+    width: to-rem(10);
+    height: to-rem(10);
+    @include flex(row, center, center, $isInline: true);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform $transition-duration ease-in-out;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    svg path {
+      transition: fill $transition-duration ease-in-out;
+    }
+  }
+}
+
+.card-feature {
+  background-color: $white-color;
+  border: to-rem(1) solid $border-color;
+  padding: fluid(40, 24);
+  @include flex(column, center, center);
+  transition:
+    transform $transition-duration ease,
+    box-shadow $transition-duration ease;
+
+  @include hover {
+    transform: translateY(to-rem(-5));
+    box-shadow: 0 to-rem(15) to-rem(30) rgba($dark-color, 0.05);
+  }
+
+  &__icon {
+    width: to-rem(72);
+    height: to-rem(72);
+    @include flex(row, center, center);
+    margin-bottom: to-rem(32);
+    font-size: to-rem(24);
+
+    &--cyan {
+      background-color: #cff2ed;
+    }
+
+    &--purple {
+      background-color: #e6cff2;
+    }
+
+    &--lime {
+      background-color: #ebfa9e;
+    }
+  }
+
+  &__title {
+    font-family: $second-family;
+    @include fluid-text(24, 18, 1.39);
+    letter-spacing: 0.02em;
+    color: $dark-color;
+    margin-bottom: to-rem(10);
+  }
+
+  &__desc {
+    @include fluid-text(16, 13, 1.5);
+    letter-spacing: 0.02em;
+    color: #454c5f;
+    text-align: center;
+  }
+}

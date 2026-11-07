@@ -1,0 +1,25 @@
+@use "helpers/functions" as *;
+
+// Сетка
+$container-width: 1280;
+$container-padding-x: 15;
+
+// Анимации
+$transition-duration: 0.3s;
+$transition-base: all $transition-duration ease-in-out;
+
+// Шрифты
+$font-family: "BeVietnamPro", sans-serif;
+$second-family: "Outfit", sans-serif;
+
+// ==========================================================================
+// ЦВЕТОВАЯ ПАЛИТРА (UI-KIT) — ПРОЕКТ LEMON
+// ==========================================================================
+
+$white-color: #fff;
+$black-color: #000;
+$dark-color: #1c2436;
+$accent-color: #2a514c;
+$yellow-color: #bfe03e;
+$bg-color: #f6f6f9;
+$border-color: #e8e7ee;

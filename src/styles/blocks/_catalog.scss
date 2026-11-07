@@ -1,0 +1,79 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.catalog {
+  width: 100%;
+  padding-block: fluid(160, 80);
+  background-color: $bg-color;
+
+  &__container {
+    @include flex(column, center, stretch, fluid(60, 40));
+  }
+}
+
+.group-catalog {
+  width: 100%;
+  @include flex(column, center, center, fluid(40, 24));
+
+  &__header {
+    text-align: center;
+    @include flex(column, center, center, 6);
+  }
+
+  &__subtitle {
+    font-family: $second-family;
+    @include fluid-text(16, 14, 1.5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #454c5f;
+  }
+
+  &__title {
+    font-family: $second-family;
+    @include fluid-text(45, 35, 1.28);
+    letter-spacing: 0.02em;
+    color: $dark-color;
+  }
+
+  &__grid {
+    width: 100%;
+    @include flex(row, center, $gap: 40, $wrap: wrap);
+
+    @include respond-to("tablet") {
+      gap: to-rem(24);
+    }
+  }
+}
+
+.product-card {
+  width: 100%;
+  max-width: to-rem(620);
+  height: to-rem(536);
+
+  background-color: $white-color;
+  border: to-rem(1) solid $border-color;
+  border-radius: to-rem(8);
+
+  padding-block: to-rem(75);
+  padding-inline: to-rem(47);
+
+  @include flex(row, center, center);
+  transition:
+    transform $transition-duration ease-in-out,
+    box-shadow $transition-duration ease-in-out;
+
+  @include hover {
+    transform: translateY(to-rem(-6));
+    box-shadow: 0 to-rem(20) to-rem(40) rgba($dark-color, 0.06);
+  }
+
+  &__img {
+    width: 100%;
+    max-width: to-rem(526);
+    aspect-ratio: 526 / 386;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    box-shadow: 0 to-rem(4) to-rem(12) rgba($black-color, 0.03);
+  }
+}

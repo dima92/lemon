@@ -1,0 +1,25 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.banner {
+  width: 100%;
+  padding-block: to-rem(16);
+  background-color: $accent-color;
+  background-image: url("../../assets/images/banner-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__container {
+    @include flex(row, center, center);
+  }
+
+  &__text {
+    max-width: to-rem(390);
+    font-size: to-rem(12);
+    line-height: 2;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: $white-color;
+  }
+}
